@@ -7,19 +7,19 @@
    ============================================================ */
 
 :root {
-  /* color tokens (from live site) */
+  /* Edge Groups palette: white bg, orange accent, grey supports */
   --bg:            #ffffff;
-  --bg-hero:       #eafaf0;          /* pale mint */
-  --bg-soft:       #f7faf8;
-  --primary:       #6EC1E4;          /* sky-blue accent */
-  --secondary:     #54595F;          /* dark grey for headings */
-  --text:          #7A7A7A;          /* body text */
+  --bg-hero:       #f5f5f5;          /* light grey */
+  --bg-soft:       #fafafa;
+  --primary:       #6b7280;          /* mid grey */
+  --secondary:     #2f3338;          /* near-black grey for headings */
+  --text:          #5b6168;          /* body text grey */
   --text-strong:   #1f2937;
-  --accent:        #61CE70;          /* green */
-  --accent-dark:   #4cbf5f;
-  --accent-ink:    #0f2f1d;
+  --accent:        #F26B1F;          /* edge orange */
+  --accent-dark:   #d9550e;
+  --accent-ink:    #3a1908;
   --border:        #e5e7eb;
-  --border-soft:   #eef0f2;
+  --border-soft:   #ececec;
 
   --radius-sm: 6px;
   --radius:    10px;
@@ -143,7 +143,7 @@ h1, h2, h3, h4 {
   background: var(--accent-dark);
   color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(97, 206, 112, .35);
+  box-shadow: 0 6px 18px rgba(242, 107, 31, .35);
 }
 .btn-primary.big { padding: 16px 30px; font-size: 16px; }
 .btn-primary.block { display: block; text-align: center; }
@@ -249,7 +249,7 @@ h1, h2, h3, h4 {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  border: 1px solid #cfeacf;
+  border: 1px solid #e5d3c2;
   border-radius: var(--radius-pill);
   background: #ffffff;
   color: var(--secondary);
@@ -324,7 +324,7 @@ table {
 }
 thead th {
   text-align: left;
-  background: #f5faf6;
+  background: #f5f5f5;
   color: var(--secondary);
   font-weight: 600;
   font-size: 14.5px;
@@ -340,7 +340,7 @@ tbody td {
   line-height: 1.65;
 }
 tbody tr:last-child td { border-bottom: 0; }
-tbody tr:nth-child(even) td { background: #fcfdfc; }
+tbody tr:nth-child(even) td { background: #fafafa; }
 
 /* Learn more link */
 .learn-more-link {
@@ -430,12 +430,12 @@ tbody tr:nth-child(even) td { background: #fcfdfc; }
 .related-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow);
-  border-color: #cfeacf;
+  border-color: #e5d3c2;
   text-decoration: none;
 }
 .related-thumb {
   height: 170px;
-  background: linear-gradient(135deg, #d2f0db, #a8e0bb);
+  background: linear-gradient(135deg, #fbcfae, #f59a66);
   position: relative;
 }
 .related-thumb::after {
@@ -466,7 +466,7 @@ tbody tr:nth-child(even) td { background: #fcfdfc; }
 /* ============================================================ CTA */
 .cta {
   background:
-    radial-gradient(1200px 400px at 50% -50%, #d2f0db 0%, transparent 70%),
+    radial-gradient(1200px 400px at 50% -50%, #fbd9c0 0%, transparent 70%),
     linear-gradient(180deg, #ffffff 0%, var(--bg-hero) 100%);
   padding: 88px 0;
   text-align: center;
