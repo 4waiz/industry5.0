@@ -1,57 +1,48 @@
-// Minimal interactivity: mobile drawer + accessible mega-menu toggles.
+// Mobile drawer + Esc-to-close.
 (function () {
   'use strict';
 
   const hamburger = document.getElementById('hamburger');
   const drawer    = document.getElementById('mobileDrawer');
 
+  function closeDrawer() {
+    if (!drawer || drawer.hasAttribute('hidden')) return;
+    drawer.setAttribute('hidden', '');
+    hamburger.classList.remove('is-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+  }
+
+  function openDrawer() {
+    if (!drawer) return;
+    drawer.removeAttribute('hidden');
+    hamburger.classList.add('is-open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-open');
+  }
+
   if (hamburger && drawer) {
     hamburger.addEventListener('click', () => {
-      const open = drawer.hasAttribute('hidden') ? true : false;
-      if (open) {
-        drawer.removeAttribute('hidden');
-        hamburger.setAttribute('aria-expanded', 'true');
-      } else {
-        drawer.setAttribute('hidden', '');
-        hamburger.setAttribute('aria-expanded', 'false');
-      }
+      if (drawer.hasAttribute('hidden')) openDrawer();
+      else closeDrawer();
+    });
+
+    // Close when a link in the drawer is clicked.
+    drawer.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', closeDrawer);
     });
   }
 
-  // Mega-menu: support hover (CSS) and keyboard/click toggle.
-  document.querySelectorAll('.has-mega > .nav-link').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      const parent = btn.parentElement;
-      const isOpen = parent.classList.toggle('open');
-      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      // close siblings
-      parent.parentElement.querySelectorAll('.has-mega.open').forEach((other) => {
-        if (other !== parent) {
-          other.classList.remove('open');
-          const ob = other.querySelector('.nav-link');
-          if (ob) ob.setAttribute('aria-expanded', 'false');
-        }
-      });
-      e.stopPropagation();
-    });
-  });
-
-  // Click outside closes any open mega.
-  document.addEventListener('click', () => {
-    document.querySelectorAll('.has-mega.open').forEach((el) => {
-      el.classList.remove('open');
-      const ob = el.querySelector('.nav-link');
-      if (ob) ob.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  // Escape closes drawer + megas.
+  // Esc closes the drawer.
   document.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape') return;
-    if (drawer && !drawer.hasAttribute('hidden')) {
-      drawer.setAttribute('hidden', '');
-      hamburger.setAttribute('aria-expanded', 'false');
-    }
-    document.querySelectorAll('.has-mega.open').forEach((el) => el.classList.remove('open'));
+    if (e.key === 'Escape') closeDrawer();
+  });
+
+  // Re-show drawer correctly if user resizes back to desktop.
+  let lastWidth = window.innerWidth;
+  window.addEventListener('resize', () => {
+    const w = window.innerWidth;
+    if (w !== lastWidth && w > 768) closeDrawer();
+    lastWidth = w;
   });
 })();
