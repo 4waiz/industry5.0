@@ -43,6 +43,34 @@
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* -------------------------------------------------- Fast, fixed-duration smooth scroll
+     Native `behavior:'smooth'` scales its duration with distance, so jumping
+     across this long article feels sluggish. This caps every jump at ~420ms. */
+  let scrollRAF = null;
+  function smoothScrollTo(targetY) {
+    if (scrollRAF) cancelAnimationFrame(scrollRAF);
+    const maxY = document.documentElement.scrollHeight - window.innerHeight;
+    const endY = Math.max(0, Math.min(targetY, maxY));
+    if (reduceMotion) { window.scrollTo(0, endY); return; }
+    const startY = window.scrollY;
+    const dist = endY - startY;
+    if (Math.abs(dist) < 2) { window.scrollTo(0, endY); return; }
+    const duration = 420; // ms — same snappy feel regardless of distance
+    let startTime = null;
+    function step(ts) {
+      if (startTime === null) startTime = ts;
+      const p = Math.min((ts - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+      window.scrollTo(0, startY + dist * eased);
+      if (p < 1) scrollRAF = requestAnimationFrame(step);
+      else scrollRAF = null;
+    }
+    scrollRAF = requestAnimationFrame(step);
+  }
+  // Cancel the animation if the user scrolls manually mid-flight.
+  window.addEventListener('wheel', () => { if (scrollRAF) { cancelAnimationFrame(scrollRAF); scrollRAF = null; } }, { passive: true });
+  window.addEventListener('touchstart', () => { if (scrollRAF) { cancelAnimationFrame(scrollRAF); scrollRAF = null; } }, { passive: true });
+
   /* -------------------------------------------------- Scroll progress bar */
   const progressBar = document.getElementById('readProgress');
   function updateProgress() {
@@ -62,9 +90,7 @@
     else toTop.classList.remove('is-visible');
   }
   if (toTop) {
-    toTop.addEventListener('click', () =>
-      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' })
-    );
+    toTop.addEventListener('click', () => smoothScrollTo(0));
   }
 
   /* -------------------------------------------------- Reveal on scroll */
@@ -165,7 +191,7 @@
       a.addEventListener('click', (e) => {
         e.preventDefault();
         const top = h.getBoundingClientRect().top + window.scrollY - 110;
-        window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+        smoothScrollTo(top);
       });
       li.appendChild(a);
       ul.appendChild(li);

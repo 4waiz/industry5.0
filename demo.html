@@ -65,68 +65,9 @@
         </div>
       </div>
 
-      <div class="hero-image">
-        <!-- Spot dog inline SVG (stylised) on a patrol scanning a machine -->
-        <svg class="spot-svg" viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Boston Dynamics Spot robot scanning a machine on patrol">
-          <defs>
-            <linearGradient id="spotBody" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#fde047"/><stop offset="1" stop-color="#f59e0b"/>
-            </linearGradient>
-            <linearGradient id="mach" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#f9fafb"/><stop offset="1" stop-color="#d1d5db"/>
-            </linearGradient>
-          </defs>
-
-          <!-- floor -->
-          <rect y="270" width="500" height="50" fill="#e5e7eb"/>
-          <line x1="0" y1="270" x2="500" y2="270" stroke="#cbd5e1" stroke-width="2"/>
-
-          <!-- machine being inspected -->
-          <rect x="360" y="120" width="110" height="150" fill="url(#mach)" stroke="#9ca3af"/>
-          <rect x="378" y="142" width="74" height="48" fill="#1f2937"/>
-          <rect x="384" y="148" width="62" height="36" fill="#3b82f6" opacity=".85"/>
-          <circle cx="395" cy="214" r="7" fill="#ef4444"/>
-          <circle cx="418" cy="214" r="7" fill="#10b981"/>
-          <!-- gauge -->
-          <circle cx="441" cy="214" r="12" fill="#fff" stroke="#9ca3af"/>
-          <line x1="441" y1="214" x2="448" y2="207" stroke="#ef4444" stroke-width="2"/>
-
-          <!-- scan beam from Spot to machine -->
-          <polygon class="scan-beam" points="250,120 360,150 360,210 250,150" fill="#F26B1F"/>
-
-          <!-- SPOT robot -->
-          <g>
-            <!-- body -->
-            <rect x="150" y="150" width="120" height="44" rx="14" fill="url(#spotBody)" stroke="#b45309"/>
-            <!-- sensor head/payload -->
-            <rect x="240" y="120" width="44" height="34" rx="6" fill="#374151"/>
-            <circle cx="262" cy="137" r="8" fill="#60a5fa"/>
-            <circle cx="262" cy="137" r="3" fill="#1e3a8a"/>
-            <!-- Spot CAM mast -->
-            <rect x="258" y="100" width="6" height="22" fill="#4b5563"/>
-            <rect x="250" y="92" width="22" height="10" rx="3" fill="#374151"/>
-            <!-- legs (front + back, animated) -->
-            <g class="spot-leg l1" fill="#b45309">
-              <rect x="160" y="190" width="9" height="46" rx="3"/>
-              <rect x="160" y="232" width="9" height="34" rx="3" transform="rotate(20 164 232)"/>
-            </g>
-            <g class="spot-leg l2" fill="#92400e">
-              <rect x="250" y="190" width="9" height="46" rx="3"/>
-              <rect x="250" y="232" width="9" height="34" rx="3" transform="rotate(-18 254 232)"/>
-            </g>
-            <rect x="178" y="190" width="9" height="60" rx="3" fill="#d97706"/>
-            <rect x="232" y="190" width="9" height="60" rx="3" fill="#d97706"/>
-            <!-- shadow -->
-            <ellipse cx="210" cy="270" rx="80" ry="7" fill="#000" opacity=".12"/>
-          </g>
-
-          <!-- floating data chip -->
-          <g>
-            <rect x="150" y="60" width="150" height="30" rx="15" fill="#fff" stroke="#e5e7eb"/>
-            <circle cx="168" cy="75" r="5" fill="#10b981"/>
-            <text x="182" y="79" font-family="Roboto, sans-serif" font-size="13" font-weight="600" fill="#2f3338">Streaming to BRIDGE</text>
-          </g>
-        </svg>
+      <div class="hero-image spot-photo">
+        <img src="assets/spot-bridge.jpg" alt="Boston Dynamics Spot robot on a grated factory walkway, fitted with a sensor payload" />
+        <span class="spot-chip"><span class="dot"></span> Streaming to BRIDGE</span>
       </div>
     </div>
   </div>
