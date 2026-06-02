@@ -10,8 +10,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <!-- Lottie player web component (for the animated Industry 5.0 feature row) -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
 </head>
 <body>
+
+<!-- Reading-progress bar -->
+<div class="read-progress" id="readProgress" aria-hidden="true"></div>
 
 <!-- ============================================================= HEADER -->
 <header class="site-header" id="siteHeader">
@@ -65,8 +70,13 @@
       </div>
 
       <div class="hero-image">
+        <!-- Floating live-status chips -->
+        <span class="hero-chip c1"><span class="dot"></span> Line Active</span>
+        <span class="hero-chip c2"><span class="dot"></span> Cobot Synced</span>
+        <span class="hero-chip c3"><span class="dot"></span> OEE 92%</span>
+
         <!-- Realistic-looking factory worker scene built as inline SVG (no external asset needed) -->
-        <svg viewBox="0 0 640 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Manufacturing worker on a production line">
+        <svg class="hero-scene" viewBox="0 0 640 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Manufacturing worker on a production line">
           <defs>
             <linearGradient id="ceiling" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stop-color="#f3f4f6"/><stop offset="1" stop-color="#e5e7eb"/>
@@ -102,17 +112,18 @@
             <g>
               <rect x="380" y="160" width="90"  height="180" fill="url(#machine)" stroke="#9ca3af"/>
               <rect x="395" y="180" width="60"  height="40"  fill="#1f2937"/>
-              <rect x="400" y="185" width="50"  height="30"  fill="#3b82f6" opacity=".85"/>
-              <circle cx="410" cy="240" r="6" fill="#ef4444"/>
-              <circle cx="430" cy="240" r="6" fill="#10b981"/>
+              <rect class="screen-glow" x="400" y="185" width="50"  height="30"  fill="#3b82f6" opacity=".85"/>
+              <circle class="spark s1" cx="410" cy="240" r="6" fill="#ef4444"/>
+              <circle class="spark s2" cx="430" cy="240" r="6" fill="#10b981"/>
 
               <rect x="475" y="170" width="80"  height="170" fill="url(#machine)" stroke="#9ca3af"/>
               <rect x="488" y="190" width="54"  height="36"  fill="#1f2937"/>
-              <rect x="492" y="194" width="46"  height="28"  fill="#3b82f6" opacity=".85"/>
+              <rect class="screen-glow" x="492" y="194" width="46"  height="28"  fill="#3b82f6" opacity=".85"/>
 
               <rect x="560" y="180" width="80"  height="160" fill="url(#machine)" stroke="#9ca3af"/>
               <rect x="572" y="200" width="56"  height="34"  fill="#1f2937"/>
-              <rect x="576" y="204" width="48"  height="26"  fill="#3b82f6" opacity=".85"/>
+              <rect class="screen-glow" x="576" y="204" width="48"  height="26"  fill="#3b82f6" opacity=".85"/>
+              <circle class="spark s3" cx="600" cy="250" r="5" fill="#fbbf24"/>
             </g>
           </g>
 
@@ -126,6 +137,8 @@
           <!-- conveyor / yellow rails -->
           <rect x="0"   y="360" width="640" height="14" fill="url(#conveyor)"/>
           <rect x="0"   y="374" width="640" height="6"  fill="#92400e"/>
+          <!-- animated belt motion line -->
+          <line class="conveyor-belt" x1="0" y1="367" x2="640" y2="367"/>
           <!-- conveyor supports -->
           <g fill="#1f2937">
             <rect x="20"  y="380" width="10" height="40"/>
@@ -149,7 +162,7 @@
           </g>
 
           <!-- WORKER (centered, foreground) -->
-          <g>
+          <g class="worker">
             <!-- legs -->
             <rect x="280" y="380" width="22" height="80" rx="4" fill="#6b7280"/>
             <rect x="310" y="380" width="22" height="80" rx="4" fill="#6b7280"/>
