@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spot × BRIDGE — Industry 5.0 Demo Use-Cases | BRIDGE</title>
+  <meta name="description" content="How Boston Dynamics Spot can demonstrate Industry 5.0 across BRIDGE CORE, NEXACTO and ARIS — one autonomous mission, three pillars: resilient, quality-driven, human-centric." />
+  <link rel="icon" type="image/png" href="assets/darksvg.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Reading-progress bar -->
+<div class="read-progress" id="readProgress" aria-hidden="true"></div>
+
+<!-- ============================================================= HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="BRIDGE home">
+      <img src="assets/darksvg.png" alt="BRIDGE" />
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a class="nav-link" href="index.html">Industry 5.0</a></li>
+        <li><a class="nav-link" href="demo.html">Demo Use-Cases</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-cta">
+      <a class="btn-secondary" href="index.html">&larr; Back to Article</a>
+      <a class="btn-primary" href="#contact">Request a Demo</a>
+    </div>
+
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" hidden>
+    <ul>
+      <li><a href="index.html">Industry 5.0</a></li>
+      <li><a href="demo.html">Demo Use-Cases</a></li>
+      <li><a class="btn-secondary block" href="index.html">&larr; Back to Article</a></li>
+      <li><a class="btn-primary block" href="#contact">Request a Demo</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============================================================= HERO -->
+<section class="demo-hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="demo-eyebrow"><span class="pulse"></span> Live Industry 5.0 Demo Concept</span>
+        <h1>Bring Industry 5.0 to Life with <span class="grad">Spot &times; BRIDGE</span></h1>
+        <p class="lead">One autonomous Boston Dynamics&nbsp;Spot mission, three BRIDGE products, three Industry&nbsp;5.0 pillars. Spot patrols the floor while <strong>CORE</strong>, <strong>NEXACTO</strong> and <strong>ARIS</strong> turn what it sees into resilient operations, automated quality, and human-centric guidance &mdash; in real time.</p>
+        <div class="demo-hero-actions">
+          <a class="btn-primary big" href="#mission">See the Mission</a>
+          <a class="btn-secondary" href="#shopping">What We Need to Buy</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <!-- Spot dog inline SVG (stylised) on a patrol scanning a machine -->
+        <svg class="spot-svg" viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Boston Dynamics Spot robot scanning a machine on patrol">
+          <defs>
+            <linearGradient id="spotBody" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#fde047"/><stop offset="1" stop-color="#f59e0b"/>
+            </linearGradient>
+            <linearGradient id="mach" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f9fafb"/><stop offset="1" stop-color="#d1d5db"/>
+            </linearGradient>
+          </defs>
+
+          <!-- floor -->
+          <rect y="270" width="500" height="50" fill="#e5e7eb"/>
+          <line x1="0" y1="270" x2="500" y2="270" stroke="#cbd5e1" stroke-width="2"/>
+
+          <!-- machine being inspected -->
+          <rect x="360" y="120" width="110" height="150" fill="url(#mach)" stroke="#9ca3af"/>
+          <rect x="378" y="142" width="74" height="48" fill="#1f2937"/>
+          <rect x="384" y="148" width="62" height="36" fill="#3b82f6" opacity=".85"/>
+          <circle cx="395" cy="214" r="7" fill="#ef4444"/>
+          <circle cx="418" cy="214" r="7" fill="#10b981"/>
+          <!-- gauge -->
+          <circle cx="441" cy="214" r="12" fill="#fff" stroke="#9ca3af"/>
+          <line x1="441" y1="214" x2="448" y2="207" stroke="#ef4444" stroke-width="2"/>
+
+          <!-- scan beam from Spot to machine -->
+          <polygon class="scan-beam" points="250,120 360,150 360,210 250,150" fill="#F26B1F"/>
+
+          <!-- SPOT robot -->
+          <g>
+            <!-- body -->
+            <rect x="150" y="150" width="120" height="44" rx="14" fill="url(#spotBody)" stroke="#b45309"/>
+            <!-- sensor head/payload -->
+            <rect x="240" y="120" width="44" height="34" rx="6" fill="#374151"/>
+            <circle cx="262" cy="137" r="8" fill="#60a5fa"/>
+            <circle cx="262" cy="137" r="3" fill="#1e3a8a"/>
+            <!-- Spot CAM mast -->
+            <rect x="258" y="100" width="6" height="22" fill="#4b5563"/>
+            <rect x="250" y="92" width="22" height="10" rx="3" fill="#374151"/>
+            <!-- legs (front + back, animated) -->
+            <g class="spot-leg l1" fill="#b45309">
+              <rect x="160" y="190" width="9" height="46" rx="3"/>
+              <rect x="160" y="232" width="9" height="34" rx="3" transform="rotate(20 164 232)"/>
+            </g>
+            <g class="spot-leg l2" fill="#92400e">
+              <rect x="250" y="190" width="9" height="46" rx="3"/>
+              <rect x="250" y="232" width="9" height="34" rx="3" transform="rotate(-18 254 232)"/>
+            </g>
+            <rect x="178" y="190" width="9" height="60" rx="3" fill="#d97706"/>
+            <rect x="232" y="190" width="9" height="60" rx="3" fill="#d97706"/>
+            <!-- shadow -->
+            <ellipse cx="210" cy="270" rx="80" ry="7" fill="#000" opacity=".12"/>
+          </g>
+
+          <!-- floating data chip -->
+          <g>
+            <rect x="150" y="60" width="150" height="30" rx="15" fill="#fff" stroke="#e5e7eb"/>
+            <circle cx="168" cy="75" r="5" fill="#10b981"/>
+            <text x="182" y="79" font-family="Roboto, sans-serif" font-size="13" font-weight="600" fill="#2f3338">Streaming to BRIDGE</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================= STAT STRIP -->
+<section class="stats-band">
+  <div class="container">
+    <p class="eyebrow reveal">One mission &mdash; what it proves</p>
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-num" data-count="1">0</div>
+        <div class="stat-label">Autonomous Spot mission</div>
+      </div>
+      <div class="stat-card reveal delay-1">
+        <div class="stat-num" data-count="3">0</div>
+        <div class="stat-label">BRIDGE products showcased</div>
+      </div>
+      <div class="stat-card reveal delay-2">
+        <div class="stat-num" data-count="3">0</div>
+        <div class="stat-label">Industry 5.0 pillars covered</div>
+      </div>
+      <div class="stat-card reveal delay-3">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Unattended patrols via the dock</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================= MISSION FLOW -->
+<section class="demo-section" id="mission">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2>The One-Mission Demo</h2>
+      <p>Spot walks a fixed route. At each station it captures data and hands it to a different BRIDGE product &mdash; so a single walk tells the whole Industry&nbsp;5.0 story.</p>
+    </div>
+
+    <div class="mission-flow">
+      <div class="mission-step reveal">
+        <span class="step-num">1</span>
+        <div class="station">Station 1 &middot; Condition</div>
+        <h3>Read gauges &amp; thermal-scan a motor</h3>
+        <p>Spot CAM+IR reads the analog gauge and detects a bearing trending hot. The reading streams in as live OEE / condition telemetry &mdash; predictive maintenance before failure.</p>
+        <span class="feeds">Feeds &rarr; <b>BRIDGE CORE</b></span>
+      </div>
+      <div class="mission-step reveal delay-1">
+        <span class="step-num">2</span>
+        <div class="station">Station 2 &middot; Quality</div>
+        <h3>Photograph parts for defect AI</h3>
+        <p>Spot images parts on the line; a vision model flags a micro-defect a human would miss on a quick pass. The robot finds it; the engineer judges the root cause.</p>
+        <span class="feeds">Feeds &rarr; <b>BRIDGE NEXACTO</b></span>
+      </div>
+      <div class="mission-step reveal delay-2">
+        <span class="step-num">3</span>
+        <div class="station">Station 3 &middot; People</div>
+        <h3>Push guidance to the technician</h3>
+        <p>The moment a fault is raised, a context-aware work instruction lands on a worker&rsquo;s tablet or AR headset &mdash; and the fix is captured as reusable tribal knowledge.</p>
+        <span class="feeds">Feeds &rarr; <b>BRIDGE ARIS</b></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================= PILLAR MAPPING -->
+<section class="demo-section alt">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2>How It Maps to the Three Pillars</h2>
+      <p>Each station maps cleanly onto an Industry&nbsp;5.0 pillar and a BRIDGE product &mdash; the same framework from the main article, now demonstrable on hardware.</p>
+    </div>
+
+    <div class="map-grid">
+      <div class="map-card reveal">
+        <div class="map-top">
+          <div class="map-pillar">Pillar 1 &middot; Resilient</div>
+          <h3>Anticipate, don&rsquo;t react</h3>
+        </div>
+        <div class="map-body">
+          <p>Spot&rsquo;s autonomous rounds give CORE a continuous condition signal, so disruptions are predicted and prevented rather than discovered too late.</p>
+          <span class="module-tag">BRIDGE CORE</span>
+        </div>
+      </div>
+      <div class="map-card reveal delay-1">
+        <div class="map-top">
+          <div class="map-pillar">Pillar 2 &middot; Human-Centric</div>
+          <h3>Augment, don&rsquo;t replace</h3>
+        </div>
+        <div class="map-body">
+          <p>The robot handles the dull, dirty and dangerous patrol; people get clear guidance at the point of need, and expert know-how is captured before it retires.</p>
+          <span class="module-tag">BRIDGE ARIS</span>
+        </div>
+      </div>
+      <div class="map-card reveal delay-2">
+        <div class="map-top">
+          <div class="map-pillar">Pillar 3 &middot; Sustainable</div>
+          <h3>Net-positive operations</h3>
+        </div>
+        <div class="map-body">
+          <p>Thermal scanning surfaces energy leaks and overheating early, while NEXACTO&rsquo;s quality catch reduces scrap and rework &mdash; less waste, less energy per unit.</p>
+          <span class="module-tag">BRIDGE NEXACTO</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================= SHOPPING LIST -->
+<section class="demo-section" id="shopping">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2>What We Need to Buy</h2>
+      <p>We already own Spot, so this is the add-on kit that turns it into a full three-module showcase. The minimum viable buy is marked &mdash; the rest are &ldquo;wow&rdquo; upgrades.</p>
+    </div>
+
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr><th>Item</th><th>What it enables (BRIDGE module)</th><th>Approx. cost (USD)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Boston Dynamics Spot <span class="own-it">WE OWN IT</span></td>
+            <td>The mobile platform for all three stations</td>
+            <td class="cost">&mdash;</td>
+          </tr>
+          <tr>
+            <td>Spot CAM+IR payload (PTZ + thermal) <span class="opt-badge">MVP</span></td>
+            <td>Gauge reading &amp; thermal anomaly &rarr; <strong>CORE</strong></td>
+            <td class="cost">~$28k&ndash;$32k</td>
+          </tr>
+          <tr>
+            <td>Spot Dock (self-charging) <span class="opt-badge">MVP</span></td>
+            <td>Unattended, repeatable autonomous patrols</td>
+            <td class="cost">~$15k</td>
+          </tr>
+          <tr>
+            <td>BD Orbit (mission &amp; fleet software) <span class="opt-badge">MVP</span></td>
+            <td>Records / replays missions, exposes inspection data via API &rarr; <strong>CORE</strong></td>
+            <td class="cost">Subscription (quote)</td>
+          </tr>
+          <tr>
+            <td>Rugged worker tablet (e.g. Galaxy Tab Active / Zebra ET40) <span class="opt-badge">MVP</span></td>
+            <td>Receives work instructions &rarr; <strong>ARIS</strong></td>
+            <td class="cost">~$600&ndash;$900</td>
+          </tr>
+          <tr>
+            <td>Spot Arm</td>
+            <td>Opens panels, presses buttons, aims camera at awkward gauges &mdash; big visual &ldquo;wow&rdquo;</td>
+            <td class="cost">~$60k&ndash;$70k</td>
+          </tr>
+          <tr>
+            <td>AR headset (RealWear Navigator 520 or HoloLens-class)</td>
+            <td>Hands-free guidance &rarr; stronger <strong>ARIS</strong> human-centric demo</td>
+            <td class="cost">~$2.5k&ndash;$3.5k</td>
+          </tr>
+          <tr>
+            <td>IIoT sensors (vibration/temp) on the demo machine</td>
+            <td>Second live data source beside Spot &rarr; <strong>CORE</strong></td>
+            <td class="cost">~$200&ndash;$500 ea</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="text-align:center; color:var(--text); font-size:14px; margin-top:6px;">Prices are indicative for planning; confirm current figures with Boston Dynamics and vendors at quote time.</p>
+  </div>
+</section>
+
+<!-- ============================================================= INTEGRATION PIPELINE -->
+<section class="demo-section alt">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2>The Integration &mdash; Our IP</h2>
+      <p>The hardware is commodity; the <strong>Spot &harr; BRIDGE pipeline</strong> is the differentiator. Five steps from patrol to a unified dashboard your manager can forward upward.</p>
+    </div>
+
+    <div class="pipeline">
+      <div class="pipe-step reveal">
+        <div class="pipe-num">1</div>
+        <div class="pipe-body">
+          <h3>Spot SDK mission (Python)</h3>
+          <p>Define a waypoint mission that captures RGB images, IR/thermal frames and gauge OCR at each station.</p>
+        </div>
+      </div>
+      <div class="pipe-step reveal delay-1">
+        <div class="pipe-num">2</div>
+        <div class="pipe-body">
+          <h3>Orbit API &rarr; CORE ingestion</h3>
+          <p>On mission complete, push structured readings to a <code>BRIDGE CORE</code> endpoint &mdash; Spot becomes just another machine emitting OEE / condition telemetry.</p>
+        </div>
+      </div>
+      <div class="pipe-step reveal delay-2">
+        <div class="pipe-num">3</div>
+        <div class="pipe-body">
+          <h3>NEXACTO defect verdicts</h3>
+          <p>POST Spot&rsquo;s part images to the <code>NEXACTO</code> model endpoint; render defect verdicts on the same dashboard.</p>
+        </div>
+      </div>
+      <div class="pipe-step reveal delay-3">
+        <div class="pipe-num">4</div>
+        <div class="pipe-body">
+          <h3>ARIS work-instruction trigger</h3>
+          <p>When CORE or NEXACTO raise a fault, fire an <code>ARIS</code> work instruction to the tablet / AR headset &mdash; closing the connected-worker loop.</p>
+        </div>
+      </div>
+      <div class="pipe-step reveal">
+        <div class="pipe-num">5</div>
+        <div class="pipe-body">
+          <h3>One unified BRIDGE dashboard</h3>
+          <p>All three feeds live on a single screen &mdash; the screenshot that sells the Industry&nbsp;5.0 story in one glance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================= CTA -->
+<section class="demo-cta" id="contact">
+  <div class="container">
+    <h2>Ready to build the Spot &times; BRIDGE demo?</h2>
+    <p>Pair this concept with the Industry&nbsp;5.0 explainer: the article sets the vision, this mission proves it live on the floor.</p>
+    <div class="actions">
+      <a class="btn-primary big" href="index.html">Read the Industry 5.0 Article</a>
+      <a class="btn-secondary" href="#mission">Review the Mission Again</a>
+    </div>
+  </div>
+</section>
+
+<!-- Back to top -->
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
