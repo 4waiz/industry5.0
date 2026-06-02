@@ -201,21 +201,4 @@
   updateProgress();
   updateToTop();
   updateSpy();
-
-  /* -------------------------------------------------- Lottie lazy-init */
-  // Players are <dotlottie-player>/<lottie-player> elements; the web component
-  // auto-plays once the script loads. We just gate autoplay to viewport for perf.
-  if ('IntersectionObserver' in window) {
-    const lo = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const p = entry.target;
-        if (entry.isIntersecting) {
-          if (typeof p.play === 'function') p.play();
-        } else if (typeof p.pause === 'function') {
-          p.pause();
-        }
-      });
-    }, { threshold: 0.2 });
-    document.querySelectorAll('lottie-player, dotlottie-player').forEach((p) => lo.observe(p));
-  }
 })();
