@@ -227,4 +227,19 @@
   updateProgress();
   updateToTop();
   updateSpy();
+
+  /* -------------------------------------------------- Fast in-page anchor links
+     Any link to a same-page #section (hero buttons, CTA links) uses the
+     fixed-duration scroll instead of the browser's distance-scaled default. */
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    const id = a.getAttribute('href');
+    if (!id || id === '#' || id.length < 2) return;
+    a.addEventListener('click', (e) => {
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 90;
+      smoothScrollTo(top);
+    });
+  });
 })();

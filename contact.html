@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Request a Demo | BRIDGE</title>
+  <meta name="description" content="Request a BRIDGE demo — see how BRIDGE CORE, NEXACTO and ARIS turn Industry 5.0 into resilient, human-centric, automated manufacturing." />
+  <link rel="icon" type="image/png" href="assets/darksvg.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Reading-progress bar -->
+<div class="read-progress" id="readProgress" aria-hidden="true"></div>
+
+<!-- ============================================================= HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="BRIDGE home">
+      <img src="assets/darksvg.png" alt="BRIDGE" />
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a class="nav-link" href="index.html">Industry 5.0</a></li>
+        <li><a class="nav-link" href="demo.html">Demo Use-Cases</a></li>
+        <li><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-cta">
+      <a class="btn-secondary" href="demo.html">Show Demo Use-Cases</a>
+      <a class="btn-primary" href="contact.html">Request a Demo</a>
+    </div>
+
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" hidden>
+    <ul>
+      <li><a href="index.html">Industry 5.0</a></li>
+      <li><a href="demo.html">Demo Use-Cases</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a class="btn-secondary block" href="demo.html">Show Demo Use-Cases</a></li>
+      <li><a class="btn-primary block" href="contact.html">Request a Demo</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============================================================= CONTACT -->
+<section class="contact-hero">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Intro column -->
+      <div class="contact-intro">
+        <span class="demo-eyebrow"><span class="pulse"></span> Request a Demo</span>
+        <h1>See BRIDGE on your factory floor</h1>
+        <p class="lead">Tell us a little about your operation and we&rsquo;ll set up a walkthrough of <strong>BRIDGE&nbsp;CORE</strong>, <strong>NEXACTO</strong> and <strong>ARIS</strong> &mdash; tailored to the Industry&nbsp;5.0 outcomes that matter to you.</p>
+
+        <ul class="contact-points">
+          <li>
+            <span class="ck" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>A live look at machine connectivity, AI quality inspection and connected-worker guidance.</span>
+          </li>
+          <li>
+            <span class="ck" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>Honest guidance on where you are in your Industry&nbsp;4.0 &rarr; 5.0 journey.</span>
+          </li>
+          <li>
+            <span class="ck" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>No obligation &mdash; just a conversation about resilient, human-centric manufacturing.</span>
+          </li>
+        </ul>
+
+        <p class="contact-meta">
+          Prefer email? Reach us directly at<br>
+          <a href="mailto:bridgesoftwareteam@gmail.com">bridgesoftwareteam@gmail.com</a><br>
+          EDGE Group &middot; Abu Dhabi, UAE &middot; <a href="https://www.edgegroup.ae" target="_blank" rel="noopener">edgegroup.ae</a>
+        </p>
+      </div>
+
+      <!-- Form column -->
+      <div class="contact-card">
+        <h2>Tell us about your project</h2>
+        <p class="sub">We usually respond within one business day.</p>
+
+        <!--
+          HOW THE FORM SENDS EMAIL (static site, no backend):
+          1. Create a free form at https://formspree.io with the inbox
+             bridgesoftwareteam@gmail.com, then paste its endpoint below
+             into FORMSPREE_ENDPOINT (looks like https://formspree.io/f/abcdwxyz).
+          2. Until then, the form automatically falls back to opening the
+             visitor's email client (mailto) so it still "works".
+        -->
+        <form id="demoForm" novalidate>
+          <div class="form-row two">
+            <div>
+              <label for="name">Full name <span class="req">*</span></label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="company">Company <span class="req">*</span></label>
+              <input id="company" name="company" type="text" autocomplete="organization" required />
+            </div>
+          </div>
+
+          <div class="form-row two">
+            <div>
+              <label for="email">Work email <span class="req">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="interest">What are you most interested in?</label>
+            <select id="interest" name="interest">
+              <option value="BRIDGE CORE — machine connectivity & OEE">BRIDGE CORE — machine connectivity &amp; OEE</option>
+              <option value="BRIDGE NEXACTO — AI visual inspection">BRIDGE NEXACTO — AI visual inspection</option>
+              <option value="BRIDGE ARIS — connected worker & knowledge">BRIDGE ARIS — connected worker &amp; knowledge</option>
+              <option value="Spot × BRIDGE Industry 5.0 demo">Spot &times; BRIDGE Industry 5.0 demo</option>
+              <option value="The full platform / not sure yet">The full platform / not sure yet</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="message">Anything else we should know?</label>
+            <textarea id="message" name="message" placeholder="Lines, sites, machines, current pain points…"></textarea>
+          </div>
+
+          <!-- spam honeypot (hidden from humans) -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true" />
+
+          <button class="btn-primary" type="submit" id="submitBtn">Request a Demo</button>
+          <p class="form-note">By submitting, you agree to be contacted about BRIDGE. We never share your details.</p>
+
+          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Back to top -->
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+
+<script>
+  // ============================================================
+  //  Request-a-Demo form handler
+  //  Set FORMSPREE_ENDPOINT to your Formspree URL to receive emails
+  //  at bridgesoftwareteam@gmail.com. If left blank, the form falls
+  //  back to opening the visitor's email client (mailto), so it
+  //  always does something useful.
+  // ============================================================
+  (function () {
+    'use strict';
+    var FORMSPREE_ENDPOINT = ''; // e.g. 'https://formspree.io/f/xxxxxxxx'
+    var CONTACT_EMAIL = 'bridgesoftwareteam@gmail.com';
+
+    var form = document.getElementById('demoForm');
+    var statusEl = document.getElementById('formStatus');
+    var btn = document.getElementById('submitBtn');
+    if (!form) return;
+
+    function setStatus(type, msg) {
+      statusEl.className = 'form-status show ' + type;
+      statusEl.textContent = msg;
+    }
+
+    function val(id) { return (document.getElementById(id) || {}).value || ''; }
+
+    function mailtoFallback() {
+      var subject = 'Demo request — ' + (val('company') || val('name') || 'BRIDGE');
+      var body =
+        'Name: ' + val('name') + '\n' +
+        'Company: ' + val('company') + '\n' +
+        'Email: ' + val('email') + '\n' +
+        'Phone: ' + val('phone') + '\n' +
+        'Interested in: ' + val('interest') + '\n\n' +
+        'Message:\n' + val('message') + '\n';
+      window.location.href = 'mailto:' + CONTACT_EMAIL +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // basic validation
+      if (!val('name') || !val('company') || !val('email')) {
+        setStatus('err', 'Please fill in your name, company and work email.');
+        return;
+      }
+      // honeypot
+      if (form.querySelector('[name="_gotcha"]').value) return;
+
+      // No endpoint configured → mailto fallback.
+      if (!FORMSPREE_ENDPOINT) {
+        setStatus('ok', 'Opening your email app so you can send the request to ' + CONTACT_EMAIL + '…');
+        mailtoFallback();
+        return;
+      }
+
+      // AJAX submit to Formspree.
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      var data = new FormData(form);
+      fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' }
+      }).then(function (res) {
+        if (res.ok) {
+          form.reset();
+          setStatus('ok', 'Thanks! Your request is in — we’ll be in touch within one business day.');
+        } else {
+          setStatus('err', 'Something went wrong sending the form. Please email us at ' + CONTACT_EMAIL + '.');
+        }
+      }).catch(function () {
+        setStatus('err', 'Network error. Please email us at ' + CONTACT_EMAIL + '.');
+      }).finally(function () {
+        btn.disabled = false;
+        btn.textContent = 'Request a Demo';
+      });
+    });
+  })();
+</script>
+<script src="script.js"></script>
+</body>
+</html>

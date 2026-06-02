@@ -40,7 +40,9 @@
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+/* Note: native CSS smooth-scroll is intentionally NOT enabled here — its
+   duration scales with distance and feels slow on long pages. In-page jumps
+   are handled by a fixed-duration animation in script.js instead. */
 body {
   background: var(--bg);
   color: var(--text);
@@ -1382,4 +1384,94 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 900px) {
   .mission-flow, .map-grid { grid-template-columns: 1fr; }
   .demo-section { padding: 56px 0; }
+}
+
+/* ============================================================
+   CONTACT / REQUEST-A-DEMO PAGE  (contact.html)
+   ============================================================ */
+.contact-hero {
+  background:
+    radial-gradient(1000px 380px at 80% -30%, #fde4cf 0%, transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, var(--bg-hero) 100%);
+  padding: 56px 0 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+.contact-hero .container { max-width: 1080px; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 48px;
+  align-items: start;
+  padding-bottom: 64px;
+}
+.contact-intro .demo-eyebrow { margin-bottom: 18px; }
+.contact-intro h1 {
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.1; font-weight: 700; color: var(--secondary);
+  margin: 0 0 16px; letter-spacing: -.01em;
+}
+.contact-intro .lead { font-size: 17px; color: var(--text); line-height: 1.7; margin: 0 0 28px; }
+.contact-points { list-style: none; margin: 0 0 28px; padding: 0; }
+.contact-points li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 15px; color: var(--secondary); margin-bottom: 14px; line-height: 1.5;
+}
+.contact-points .ck {
+  flex: 0 0 24px; width: 24px; height: 24px; border-radius: 50%;
+  background: linear-gradient(135deg, #fff1e6, #ffe0c7); color: var(--accent-dark);
+  display: flex; align-items: center; justify-content: center; margin-top: 1px;
+}
+.contact-meta { font-size: 14.5px; color: var(--text); line-height: 1.7; }
+.contact-meta a { color: var(--accent-dark); font-weight: 600; }
+
+/* Form card */
+.contact-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 30px;
+  box-shadow: var(--shadow);
+}
+.contact-card h2 { font-size: 22px; color: var(--secondary); margin: 0 0 6px; font-weight: 700; }
+.contact-card .sub { font-size: 14.5px; color: var(--text); margin: 0 0 22px; }
+.form-row { margin-bottom: 18px; }
+.form-row.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-row label {
+  display: block; font-size: 13px; font-weight: 600; color: var(--secondary);
+  margin-bottom: 7px; letter-spacing: .01em;
+}
+.form-row label .req { color: var(--accent); }
+.contact-card input,
+.contact-card select,
+.contact-card textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 15px;
+  color: var(--text-strong);
+  padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.contact-card input:focus,
+.contact-card select:focus,
+.contact-card textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(242, 107, 31, .14);
+}
+.contact-card textarea { resize: vertical; min-height: 120px; }
+.contact-card .btn-primary { width: 100%; padding: 14px; font-size: 16px; margin-top: 4px; }
+.form-note { font-size: 12.5px; color: var(--text); margin-top: 14px; text-align: center; }
+
+/* Status messages */
+.form-status { margin-top: 16px; padding: 14px 16px; border-radius: var(--radius); font-size: 14.5px; display: none; }
+.form-status.show { display: block; }
+.form-status.ok { background: #dcfce7; border: 1px solid #bbf7d0; color: #15803d; }
+.form-status.err { background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; }
+
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 36px; padding-bottom: 48px; }
+  .form-row.two { grid-template-columns: 1fr; }
 }
